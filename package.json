@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/cjyueh/Placebook/issues"
   },
-  "homepage": "https://github.com/cjyueh/Placebook#readme"
+  "homepage": "https://github.com/cjyueh/Placebook#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.10",
+    "morgan": "^1.7.0"
+  }
 }
