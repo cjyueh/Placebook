@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PlacebookApp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
+
+	<!-- holderjs for google map placeholder -->
+	<script type="text/javascript" src="../bower_components/holderjs/holder.js"></script>
+	<!-- google maps api -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ_Mcg4XcExGczXr2bAow-L7easTP0_x0"></script>
+	<!-- modernizr -->
+	<script type="text/javascript" src="../bower_components/modernizr/bin/modernizr"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+	<!-- angular -->
+	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+
+	<title>Placebook</title>
+</head>
+<body>
+	<div class="container">
+		<!-- header -->
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li active><a href="">Your Hometown</a></li>
+				<li disabled><a href="">Other's Hometowns</a></li>
+			</ul>
+			<h3 class="text-muted">Placebook</h3>
+		</div>
+
+		<!-- content -->
+		<div class="row content">
+			<!-- google map -->
+			<div class="col-md-7">
+			</div>
+			<!-- side panel -->
+			<div class="col-md-5">
+				<div class="panel panel-default">
+					<!-- side panel title -->
+					<div class="panel-heading">
+						<h2 class="panel-title text-center">Where are you from? <span class="glyphicon glyphicon-map-marker"></span></h2>
+					</div>
+					<!-- panel form -->
+					<div class="panel-body">
+						<!-- Creates Form (novalidate disables HTML validation, use Angular to validate form) -->
+						<form name ="addForm" novalidate>
+							<!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+							<div class="form-group">
+								<label for="username">Username <span class="badge">All fields required</span></label>
+								<input type="text" class="form-control" id="username" placeholder="Name" ng-model="formData.username" required />
+							</div>
+							<div class="form-group">
+								<label for="hometown">Home Town</label>
+								<input type="text" class="form-control" id="home-town" placeholder="San Francisco, CA, USA" ng-model="formData.hometown" required />
+							</div>
+							<div class="form-group">
+								<label for="latitude">Latitude</label>
+								<input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly />
+							</div>
+							<div class="form-group">
+								<label for="longitude">Longitude</label>
+								<input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly />
+							</div>
+							<div class="form-group">
+								<label for="verified">HTML5 Verified Location? <span><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button></span></label>
+								<input type="text" class="form-control" id="verified" placeholder= "Checking..." ng-model="formData.htmlverified" readonly />
+							</div>
+							<!-- Submit button. Note that its tied to createUser() function from addCtrl. ng-disabled prevents user from submitting incomplete form. -->
+							<button type="submit" class="btn btn-danger btn-block" ng-disabled="addForm.$invalid">Submit</button>
+						</form>
+					</div> <!-- end of panel body -->
+				</div>
+			</div> <!-- end of side panel -->
+		</div> <!-- end of content -->
+		<hr/>
+		<!-- Footer -->
+		<div class="footer">
+			<p class="text-center"><span class="glyphicon glyphicon-check"></span> Placebook</p>
+		</div>
+	</div> <!-- end of container -->
+</body>
+</html>
